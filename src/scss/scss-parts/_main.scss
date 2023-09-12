@@ -1,5 +1,9 @@
 .hero {
-  background-color: $white;
+  padding: 80px 0;
+  background-color: #292c32;
+  // background-image: url("@img/bg2.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
 
   @include sol1200 {
     padding-top: 40px;
@@ -10,57 +14,28 @@
   }
 
   &__container {
-    background-image: url('@img/couple-heart.svg');
-    background-repeat: no-repeat;
-    background-position: right 17% top 40%;
-    background-size: auto 70%;
+    display: flex;
+    gap: 40px;
+    justify-content: space-between;
+  }
 
-    @include sol1200 {
-      background-size: auto 90%;
-      background-position: right 20% bottom;
-    }
-
-    @include sol992 {
-      background-size: 40% auto;
-      background-position: right 15% center;
-    }
-
-    @include sol767 {
-      background-position: right 30px center;
-    }
-
-    @include sol576 {
-      // padding-top: 250px;
-      background-position: top 30px center;
-      background-size: max(200px, 40%) auto;
-    }
+  &__picture {
+    width: 40%;
+    height: auto;
   }
 
   &__content {
+    flex-grow: 1;
+    align-self: center;
+    padding: 50px;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    width: 50%;
-    min-height: 700px;
-    transform: translateY(-30px);
+    width: 40%;
+    background-color: rgba(255, 255, 255, 0.349);
+    backdrop-filter: blur(10px);
+    border-radius: 5% 95% 7% 93% / 94% 5% 95% 6%;
 
-    @include sol1200 {
-      min-height: 400px;
-      transform: none;
-    }
-
-    @include sol767 {
-      width: 60%;
-      min-height: 350px;
-    }
-
-    @include sol576 {
-      padding-top: 250px;
-      align-items: center;
-      width: 100%;
-      min-height: unset;
-      text-align: center;
-    }
   }
 
   &__title {
@@ -68,7 +43,7 @@
     margin-bottom: 30px;
     font-size: clamp(1.5rem, 1.6vw + 1.2rem, 3.125rem);
     font-weight: 700;
-    color: $grey-dark;
+    color: #c8bcbe;
     @include textBreak;
 
     @include sol992 {
@@ -84,10 +59,11 @@
   &__descr {
     @include resetMg;
     margin-bottom: 30px;
-    width: 70%;
+    width: 90%;
     font-size: clamp(1rem, 0.6vw + 0.9rem, 1.5625rem);
     line-height: 130%;
     color: $grey-dark;
+    font-weight: 500;
     letter-spacing: 1.2px;
 
     @include sol992 {
@@ -128,6 +104,21 @@
     }
   }
 }
+
+.levitate {
+  animation: levitate-animation 4s cubic-bezier(.17,1,1,.04) infinite alternate;
+  transform-origin: center;
+  transform: scale(1);
+  }
+
+  @keyframes levitate-animation {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.1);
+  }
+  }
 
 .advantages {
   padding: 80px 0;

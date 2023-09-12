@@ -18,7 +18,7 @@ module.exports = {
 		'no-extra-semi': 'error',
 		semi: 'error',
 		'prettier/prettier': 'error',
-		// indent: ['error', 'tab'],
+		indent: ['error', 'tab'],
 	},
 	ignorePatterns: ['node_modules/', 'dist/'],
 };

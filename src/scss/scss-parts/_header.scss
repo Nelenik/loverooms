@@ -1,153 +1,220 @@
 .header {
-  position: relative;
-  padding: 20px 0px;
-  background: #333333;
-  // backdrop-filter: blur(10px);
+	position: relative;
+	padding: 20px 0px;
+	background: rgb(166, 17, 74, 0.7);
+	background: linear-gradient(
+		13deg,
+		rgba(166, 17, 74, 1) 0%,
+		rgba(255, 52, 130, 1) 51%,
+		rgba(255, 105, 164, 1) 58%,
+		rgba(255, 52, 130, 1) 65%,
+		rgba(255, 103, 162, 1) 96%
+	);
+	background-size: 300% 300%;
+	background-attachment: fixed;
+  box-shadow: 0px 3px 7px 2px rgba(166, 17, 74, 0.5);
+	animation: gradient 12s ease infinite;
+	@keyframes gradient {
+		0% {
+			background-position: 0% 0%;
+		}
+		50% {
+			background-position: 100% 100%;
+		}
+		100% {
+			background-position: 0% 0%;
+		}
+	}
 
-  &__container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
+	&__container {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
 
-  &__logo {
-    display: inline-block;
-    outline: none;
+	&__logo {
+		display: inline-block;
+		outline: none;
+    transform: translateY(-5px);
 
-    img {
-      display: block;
-      width: 192px;
-      height: 80px;
-      @include sol767 {
-        width: 144px;
-        height: 60px;
-      }
-    }
-  }
+		img {
+			display: block;
+			width: 184px;
+			height: 80px;
 
-  &__nav {}
+			@include sol767 {
+				width: 138px;
+				height: 60px;
+			}
+		}
+	}
+
+	&__nav {
+	}
 }
 
 .menu {
-  position: absolute;
-  z-index: 1000;
-  top: 100%;
-  left: 0;
-  width: 100%;
-  height: calc(100vh - 120px);
-  padding-top: 30px;
-  padding-bottom: 30px;
-  background-color: #333333;
-  border-top: 2px solid $white;
-  transform: scaleY(0);
-  transform-origin: top;
-  background-image: url('@img/love-letter.svg');
-  background-repeat: no-repeat;
-  background-size: 50% auto;
-  background-position: right 20% bottom 20%;
+	position: absolute;
+	z-index: 1000;
+	top: 100%;
+	left: 0;
+	width: 100%;
+	// background-color: $grey-light;
+  background-color: rgba(233, 230, 230, 0.7);
+	backdrop-filter: blur(15px);
+	// border-top: 1px solid #ffffff9d;
+  box-shadow: 0px -3px 7px 2px rgba(217, 217, 217, 0.996);
+	transform: scaleY(0);
+	transform-origin: top;
 
-  @include sol767 {
-    background-size: 80% auto;
-    background-position: center bottom 20%;
-  }
+	@include sol992 {
+		height: calc(100vh - 120px);
+		padding-top: 30px;
+		padding-bottom: 30px;
 
+		background-image: url('@img/fire-group.svg');
+		background-repeat: no-repeat;
+		background-size: 50% auto;
+		background-position: right 10% top 80%;
+	}
 
-  &__list {
-    max-height: 100%;
-    overflow-y: auto;
+	@include sol767 {
+		height: calc(100vh - 80px);
+		background-size: 50% auto;
+	}
 
-  }
+	@include sol576 {
+		background-image: none;
+	}
 
-  &__item {}
+	&__list {
+		display: flex;
+		gap: 30px;
+		justify-content: space-between;
+		align-items: center;
 
-  &__link {
-    display: block;
-    padding: 10px 0;
-    color: $white;
-    font-size: 1.5rem;
-    font-weight: 700;
-    @include textBreak;
-  }
+		@include sol992 {
+			gap: unset;
+			flex-direction: column;
+			justify-content: unset;
+			align-items: unset;
+			max-height: 100%;
+			overflow-y: auto;
+		}
+	}
+
+	&__item {
+	}
+
+	&__link {
+		display: inline-block;
+		padding: 20px 0;
+		color: $grey-dark;
+		font-size: 1.1rem;
+		font-weight: 700;
+		@include textBreak;
+		outline: none;
+		transition: color 0.3s ease;
+
+		&:focus-visible {
+			color: $primary-x-dark;
+		}
+
+		&:hover:not(:focus-visible) {
+			color: $primary-light;
+		}
+
+		@include sol992 {
+			padding: 10px 0;
+			font-size: clamp(1.1rem, 1vw + 0.9rem, 1.5rem);
+		}
+	}
 }
 
 .burger {
-  display: none;
+	display: none;
 
-  position: relative;
-  display: block;
-  width: 50px;
-  height: 35px;
-  border-radius: 3px;
-  outline: 2px solid transparent;
-  outline-offset: 5px;
-  transition: outline-color 0.3s ease;
-  @include sol767 {
-    width: 30px;
-    height: 25px;
-  }
+	position: relative;
+	display: block;
+	width: 50px;
+	height: 35px;
+	border-radius: 3px;
+	outline: 2px solid transparent;
+	outline-offset: 5px;
+	transition: outline-color 0.3s ease;
 
-  &::before,
-  &::after,
-  &__line {
-    position: absolute;
-    left: 50%;
-    transform: translate(-50%, 0);
-    width: 100%;
-    height: 3px;
-    background-color: $white;
-    transition: background-color 0.3s ease, width 0.3s ease;
-  }
+	@include sol992 {
+		width: 40px;
+		height: 30px;
+	}
 
-  &::before {
-    content: '';
-    top: 0;
-  }
+	@include sol767 {
+		width: 30px;
+		height: 25px;
+	}
 
-  &::after {
-    content: '';
-    bottom: 0;
-  }
+	&::before,
+	&::after,
+	&__line {
+		position: absolute;
+		left: 50%;
+		transform: translate(-50%, 0);
+		width: 100%;
+		height: 3px;
+		background-color: $white;
+		pointer-events: none;
+		border-radius: 2px;
+		transition: background-color 0.3s ease, width 0.3s ease, top 0.4s ease,
+			bottom 0.4s ease;
+	}
 
-  &__line {
-    top: 50%;
-    transform: translate(-50%, -50%);
-  }
+	&::before {
+		content: '';
+		top: 0;
+	}
 
+	&::after {
+		content: '';
+		bottom: 0;
+	}
 
-  &:focus-visible {
-    outline-color: $primary-dark;
+	&__line {
+		top: 50%;
+		transform: translate(-50%, -50%);
+	}
 
-    &::before,
-    &::after,
-    .burger__line {
-      background-color: $primary-dark;
-    }
-  }
+	&--open,
+	&:active {
+		&::before {
+			top: 50%;
+			transform: translate(-50%, -50%);
+		}
+		&::after {
+			bottom: 50%;
+			transform: translate(-50%, 50%);
+		}
+	}
 
-  &:hover:not(:focus-visible):not(:active) {
-    .burger__line {
-      width: 70%;
-    }
+	&:focus-visible {
+		outline-color: $white;
+	}
 
-    &::after {
-      width: 50%;
-    }
-  }
+	&:hover:not(:focus-visible):not(.burger--open) {
+		.burger__line {
+			width: 50%;
+		}
 
-  &:active {
-
-    .burger__line,
-    &::after {
-      width: 100%;
-    }
-  }
+		&::after,
+		&::before {
+			width: 70%;
+		}
+	}
 }
 
 .js-menu {
-  transition: transform 0.4s ease-in;
+	transition: transform 0.4s ease-in;
 
-  &--open {
-    transform: scaleY(1);
-    ;
-  }
+	&--open {
+		transform: scaleY(1);
+	}
 }
