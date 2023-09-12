@@ -1,0 +1,76 @@
+.footer {
+  padding: 20px 0;
+  background-color: $grey-dark;
+  @include sol767 {
+    padding: 30px 0;
+  }
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    @include sol1200 {
+      flex-direction: column;
+      gap: 50px;
+    }
+
+  }
+
+  &__logo {
+    img {
+      height: 40px;
+      display: block;
+    }
+  }
+
+  &__list {
+    columns: 2;
+    column-gap: 60px;
+    @include sol767 {
+      columns: unset;
+    }
+  }
+
+  &__item {
+  }
+
+  &__link {
+    position: relative;
+    display: block;
+    width: max-content;
+    height: 100%;
+    padding: 8px 12px;
+    font-size: 1.125rem;
+    font-weight: 500;
+    color: $white;
+    border-radius: 5px;
+    @include textBreak;
+    outline: none;
+    transition: background-color 0.3s ease;
+    @include sol767 {
+      margin: 0 auto;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: calc(100% - 24px);
+      height: 1px;
+      background-color: $white;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    &:focus-visible,  &:active {
+      background-color: $primary-light;
+    }
+    &:hover:not(:focus-visible):not(:active) {
+      &::after {
+        opacity: 1;
+      }
+    }
+  }
+}

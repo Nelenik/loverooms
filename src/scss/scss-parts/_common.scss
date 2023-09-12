@@ -1,0 +1,34 @@
+@import 'variables';
+@import 'mixins';
+
+// container первая переменная max-width, вторая - padding
+.container {
+  @include container(1500px, 50px);
+
+  @include sol767 {
+    padding: 0 30px;
+  }
+
+  @include sol500 {
+    padding: 0 15px;
+  }
+}
+
+.wide {
+  width: 100%;
+}
+
+.section-title {
+  margin-top: 0;
+  margin-bottom: 50px;
+  width: min(100%, 700px);
+  font-size: clamp(1.3rem, 1.4vw + 1rem, 2.7rem);
+  font-weight: 700;
+  color: $grey-dark;
+  line-height: 150%;
+
+  @include sol576 {
+    margin-bottom: 30px;
+    text-align: center;
+  }
+}
