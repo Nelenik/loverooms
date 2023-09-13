@@ -1,16 +1,23 @@
-<section class="hero">
-  <div class="container hero__container">
-    <picture class="hero__picture levitate">
-      <source srcset="@img/couple-320.webp" type="image/webp" media="(max-width:576px)">
-      <source srcset="@img/couple-600.webp" type="image/webp" media="(max-width: 992px)">
-      <source srcset="@img/couple-1200.webp" type="image/webp">
-      <img class="hero__img" src="@img/couple-1200.png" alt="" loading="lazy">
-    </picture>
+<section class="hero" id="hero">
+  <div class="container-wide hero__container">
+    <div class="hero__img-block">
+      <picture class="hero__picture levitate">
+        <source srcset="@img/couple-320.webp" type="image/webp" media="(max-width:576px)">
+        <source srcset="@img/couple-600.webp" type="image/webp" media="(max-width: 992px)">
+        <source srcset="@img/couple-1200.webp" type="image/webp" />
+        <img class="hero__img" src="@img/couple-1200.png" aria-hidden="true">
+      </picture>
+    </div>
+
     <div class="hero__content">
-      <h1 class="hero__title">Lorem ipsum dolor sit amet.</h1>
+      <h1 class="hero__title">
+        Далеко-далеко за словесными горами в стране.
+      </h1>
       <p class="hero__descr">
-        Далеко-далеко за словесными горами в стране гласных и согласных живут рыбные тексты. Толку вдали ручеек пунктуация продолжил дал имени ведущими раз последний, рыбными лучше которой, речью страна жизни то решила алфавит осталось!
+        Далеко-далеко за словесными горами в стране гласных и согласных живут
+        рыбные тексты. Толку вдали ручеек пунктуация продолжил дал имени
       </p>
+      <button class="btn-reset hero__btn">Начать</button>
     </div>
   </div>
 </section>
@@ -22,23 +29,62 @@
   </div>
 </section>
 <section class="contacts" id="contacts">
-  <div class="container contacts__container">
-    <h2 class="section-title contacts__title">
-      Контакты
-    </h2>
+  <div class="contacts__spoiler spoiler">
+    <div class="spoiler__header">
+      <h2 class="section-title contacts__title container">
+        <button class="btn-reset spoiler__trigger contacts__btn">
+          Контакты</button>
+      </h2>
+    </div>
+
+    <div class="spoiler__content container">
+      <ul class="list-reset contacts__list">
+        <li class="contacts__item">
+          <h3 class="contacts__subtitle">Техническая поддержка:</h3>
+          <p class="contacts__content">
+            <a href="#!" class="contacts__link">https://t.me/loverooms_support</a>
+          </p>
+        </li>
+        <li class="contacts__item">
+          <h3 class="contacts__subtitle">Режим работы поддержки:</h3>
+          <p class="contacts__content">
+            С понедельника по пятницу, c 10:00 до 22:00
+          </p>
+        </li>
+        <li class="contacts__item">
+          <h3 class="contacts__subtitle">Сотрудничество:</h3>
+          <p class="contacts__content">
+            <a href="#!" class="contacts__link">https://t.me/owner_tg</a>
+          </p>
+        </li>
+        <li class="contacts__item">
+          <h3 class="contacts__subtitle">E-mail:</h3>
+          <p class="contacts__content">
+            <a href="#!" class="contacts__link"> owner@mail.ru </a>
+          </p>
+        </li>
+        <li class="contacts__item">
+          <h3 class="contacts__subtitle">Телефон:</h3>
+          <p class="contacts__content">
+            <a href="tel:" class="contacts__link"> 555555555555 </a>
+          </p>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- <div class="container contacts__container">
+
+    <h2 class="section-title contacts__title">Контакты</h2>
     <ul class="list-reset contacts__list">
       <li class="contacts__item">
-        <h3 class="contacts__subtitle">
-          Техническая поддержка:
-        </h3>
+        <h3 class="contacts__subtitle">Техническая поддержка:</h3>
         <p class="contacts__content">
           <a href="#!" class="contacts__link">https://t.me/loverooms_support</a>
         </p>
       </li>
       <li class="contacts__item">
-        <h3 class="contacts__subtitle">
-          Режим работы поддержки:
-        </h3>
+        <h3 class="contacts__subtitle">Режим работы поддержки:</h3>
         <p class="contacts__content">
           С понедельника по пятницу, c 10:00 до 22:00
         </p>
@@ -52,20 +98,15 @@
       <li class="contacts__item">
         <h3 class="contacts__subtitle">E-mail:</h3>
         <p class="contacts__content">
-          <a href="#!" class="contacts__link">
-            owner@mail.ru
-          </a>
+          <a href="#!" class="contacts__link"> owner@mail.ru </a>
         </p>
       </li>
       <li class="contacts__item">
         <h3 class="contacts__subtitle">Телефон:</h3>
         <p class="contacts__content">
-          <a href="tel:" class="contacts__link">
-            555555555555
-          </a>
+          <a href="tel:" class="contacts__link"> 555555555555 </a>
         </p>
       </li>
-
     </ul>
-  </div>
+  </div> -->
 </section>

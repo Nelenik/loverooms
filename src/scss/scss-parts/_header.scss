@@ -1,220 +1,247 @@
 .header {
-	position: relative;
-	padding: 20px 0px;
-	background: rgb(166, 17, 74, 0.7);
-	background: linear-gradient(
-		13deg,
-		rgba(166, 17, 74, 1) 0%,
-		rgba(255, 52, 130, 1) 51%,
-		rgba(255, 105, 164, 1) 58%,
-		rgba(255, 52, 130, 1) 65%,
-		rgba(255, 103, 162, 1) 96%
-	);
-	background-size: 300% 300%;
-	background-attachment: fixed;
-  box-shadow: 0px 3px 7px 2px rgba(166, 17, 74, 0.5);
-	animation: gradient 12s ease infinite;
-	@keyframes gradient {
-		0% {
-			background-position: 0% 0%;
-		}
-		50% {
-			background-position: 100% 100%;
-		}
-		100% {
-			background-position: 0% 0%;
-		}
-	}
+  position: relative;
+  z-index: 10;
+  padding: 20px 0px;
+  background: $primary;
+  background: linear-gradient(13deg,
+      $primary-dark 0%,
+      $primary 51%,
+      $primary-light-2 58%,
+      $primary 65%,
+      $primary-medium 96%);
+  background-size: 300% 300%;
+  background-attachment: fixed;
+  box-shadow: 0px 2px 4px 2px #ff3482db;
+  animation: gradient 12s ease infinite;
 
-	&__container {
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
-	}
+  @include sol992 {
+    padding: 10px 0;
+  }
 
-	&__logo {
-		display: inline-block;
-		outline: none;
+  @include sol576 {
+    padding: 5px 0;
+  }
+
+  @keyframes gradient {
+    0% {
+      background-position: 0% 0%;
+    }
+
+    50% {
+      background-position: 100% 100%;
+    }
+
+    100% {
+      background-position: 0% 0%;
+    }
+  }
+
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__logo {
+    display: inline-block;
+    outline: none;
     transform: translateY(-5px);
 
-		img {
-			display: block;
-			width: 184px;
-			height: 80px;
+    @include sol576 {
+      transform: translateY(-2px);
+    }
 
-			@include sol767 {
-				width: 138px;
-				height: 60px;
-			}
-		}
-	}
+    img {
+      display: block;
+      width: 184px;
+      height: 80px;
 
-	&__nav {
-	}
+      @include sol767 {
+        width: 138px;
+        height: 60px;
+      }
+
+      @include sol576 {
+        width: auto;
+        height: 40px;
+      }
+    }
+  }
+
+  &__nav {}
 }
 
 .menu {
-	position: absolute;
-	z-index: 1000;
-	top: 100%;
-	left: 0;
-	width: 100%;
-	// background-color: $grey-light;
-  background-color: rgba(233, 230, 230, 0.7);
-	backdrop-filter: blur(15px);
-	// border-top: 1px solid #ffffff9d;
-  box-shadow: 0px -3px 7px 2px rgba(217, 217, 217, 0.996);
-	transform: scaleY(0);
-	transform-origin: top;
+  position: absolute;
+  z-index: 1000;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  background-color: rgb(255, 242, 242, 0.7);
+  backdrop-filter: blur(15px);
+  box-shadow: 0px -3px 4px 2px rgba(217, 217, 217, 0.996);
+  transform: scaleY(0);
+  transform-origin: top;
 
-	@include sol992 {
-		height: calc(100vh - 120px);
-		padding-top: 30px;
-		padding-bottom: 30px;
+  @include sol1400 {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
 
-		background-image: url('@img/fire-group.svg');
-		background-repeat: no-repeat;
-		background-size: 50% auto;
-		background-position: right 10% top 80%;
-	}
+  @include sol992 {
+    height: calc(100vh - 100px);
+    padding-top: 30px;
+    padding-bottom: 30px;
 
-	@include sol767 {
-		height: calc(100vh - 80px);
-		background-size: 50% auto;
-	}
+    // background-image: url('@img/fire-group.svg');
+    // background-repeat: no-repeat;
+    // background-size: 50% auto;
+    // background-position: right 20% top 60%;
+  }
 
-	@include sol576 {
-		background-image: none;
-	}
+  @include sol767 {
+    height: calc(100vh - 80px);
+    background-size: 50% auto;
+  }
 
-	&__list {
-		display: flex;
-		gap: 30px;
-		justify-content: space-between;
-		align-items: center;
+  @include sol576 {
+    height: calc(100vh - 50px);
+    background-image: none;
+  }
 
-		@include sol992 {
-			gap: unset;
-			flex-direction: column;
-			justify-content: unset;
-			align-items: unset;
-			max-height: 100%;
-			overflow-y: auto;
-		}
-	}
+  &__list {
+    display: flex;
+    gap: 30px;
+    justify-content: space-between;
+    align-items: center;
 
-	&__item {
-	}
+    @include sol992 {
+      gap: unset;
+      flex-direction: column;
+      justify-content: unset;
+      align-items: unset;
+      max-height: 100%;
+      overflow-y: auto;
+    }
+  }
 
-	&__link {
-		display: inline-block;
-		padding: 20px 0;
-		color: $grey-dark;
-		font-size: 1.1rem;
-		font-weight: 700;
-		@include textBreak;
-		outline: none;
-		transition: color 0.3s ease;
+  &__item {}
 
-		&:focus-visible {
-			color: $primary-x-dark;
-		}
+  &__link {
+    display: inline-block;
+    padding: 20px 0;
+    color: $grey-dark;
+    font-size: 1.1rem;
+    font-weight: 700;
+    @include textBreak;
+    outline: none;
+    transition: color 0.3s ease;
 
-		&:hover:not(:focus-visible) {
-			color: $primary-light;
-		}
+    &:focus-visible {
+      color: $primary-x-dark;
+    }
 
-		@include sol992 {
-			padding: 10px 0;
-			font-size: clamp(1.1rem, 1vw + 0.9rem, 1.5rem);
-		}
-	}
+    &:hover:not(:focus-visible) {
+      color: $primary-light;
+    }
+
+    @include sol992 {
+      padding: 10px 0;
+      font-size: clamp(1.1rem, 1vw + 0.9rem, 1.5rem);
+    }
+  }
 }
 
 .burger {
-	display: none;
+  display: none;
 
-	position: relative;
-	display: block;
-	width: 50px;
-	height: 35px;
-	border-radius: 3px;
-	outline: 2px solid transparent;
-	outline-offset: 5px;
-	transition: outline-color 0.3s ease;
+  position: relative;
+  display: block;
+  width: 50px;
+  height: 35px;
+  border-radius: 3px;
+  outline: 2px solid transparent;
+  outline-offset: 5px;
+  transition: outline-color 0.3s ease;
 
-	@include sol992 {
-		width: 40px;
-		height: 30px;
-	}
+  @include sol992 {
+    width: 40px;
+    height: 30px;
+  }
 
-	@include sol767 {
-		width: 30px;
-		height: 25px;
-	}
+  @include sol767 {
+    width: 30px;
+    height: 25px;
+  }
 
-	&::before,
-	&::after,
-	&__line {
-		position: absolute;
-		left: 50%;
-		transform: translate(-50%, 0);
-		width: 100%;
-		height: 3px;
-		background-color: $white;
-		pointer-events: none;
-		border-radius: 2px;
-		transition: background-color 0.3s ease, width 0.3s ease, top 0.4s ease,
-			bottom 0.4s ease;
-	}
+  &::before,
+  &::after,
+  &__line {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 0);
+    width: 100%;
+    height: 3px;
+    background-color: $white;
+    pointer-events: none;
+    border-radius: 2px;
+    transition: background-color 0.3s ease, width 0.3s ease, top 0.4s ease,
+      bottom 0.4s ease;
+  }
 
-	&::before {
-		content: '';
-		top: 0;
-	}
+  &::before {
+    content: '';
+    top: 0;
+  }
 
-	&::after {
-		content: '';
-		bottom: 0;
-	}
+  &::after {
+    content: '';
+    bottom: 0;
+  }
 
-	&__line {
-		top: 50%;
-		transform: translate(-50%, -50%);
-	}
+  &__line {
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
 
-	&--open,
-	&:active {
-		&::before {
-			top: 50%;
-			transform: translate(-50%, -50%);
-		}
-		&::after {
-			bottom: 50%;
-			transform: translate(-50%, 50%);
-		}
-	}
+  &--open,
+  &:active {
+    &::before {
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
 
-	&:focus-visible {
-		outline-color: $white;
-	}
+    &::after {
+      bottom: 50%;
+      transform: translate(-50%, 50%);
+    }
+  }
 
-	&:hover:not(:focus-visible):not(.burger--open) {
-		.burger__line {
-			width: 50%;
-		}
+  &:focus-visible {
+    outline-color: $white;
+  }
 
-		&::after,
-		&::before {
-			width: 70%;
-		}
-	}
+  @media (hover:hover) {
+    &:hover:not(:focus-visible):not(.burger--open) {
+      .burger__line {
+        width: 50%;
+      }
+
+      &::after,
+      &::before {
+        width: 70%;
+      }
+    }
+  }
+
 }
 
 .js-menu {
-	transition: transform 0.4s ease-in;
+  transition: transform 0.4s ease-in;
 
-	&--open {
-		transform: scaleY(1);
-	}
+  &--open {
+    transform: scaleY(1);
+  }
 }

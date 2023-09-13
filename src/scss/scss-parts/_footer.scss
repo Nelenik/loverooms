@@ -1,55 +1,133 @@
 .footer {
-  padding: 20px 0;
-  background-color: $grey-dark;
+  padding: 50px 0;
+  background-color: #000000;
+  // border-top: 1px solid rgba(255, 255, 255, 0.827);
+  box-shadow: 0px -3px 4px 2px rgba(217, 217, 217, 0.996);
+
   @include sol767 {
-    padding: 30px 0;
+    padding: 20px 0;
   }
+
   &__container {
     display: flex;
+    gap: 40px;
+    align-items: flex-start;
     justify-content: space-between;
-    align-items: center;
 
-    @include sol1200 {
+    @include sol992 {
       flex-direction: column;
+      align-items: center;
       gap: 50px;
     }
 
+    @include sol767 {
+      gap: 30px;
+    }
+  }
+
+  &__logo-block {
+    width: 33.3%;
+
+    @include sol992 {
+      width: 100%;
+      padding-bottom: 30px;
+      border-bottom: 1px solid rgba(128, 128, 128, 0.852);
+    }
+
+    @include sol767 {
+      padding: 10px 0;
+    }
   }
 
   &__logo {
+    display: block;
+    width: max-content;
+    padding: 10px;
+    border: 1px solid transparent;
+    border-radius: 10px;
+    outline: none;
+    transform: translate(-10px, -10px);
+    filter: opacity(0.8);
+    text-align: center;
+    transition: border-color 0.3s ease;
+
+    @include sol992 {
+      margin: 0 auto;
+    }
+
     img {
-      height: 40px;
+      height: 80px;
       display: block;
     }
-  }
 
-  &__list {
-    columns: 2;
-    column-gap: 60px;
-    @include sol767 {
-      columns: unset;
+    &:focus-visible {
+      border-color: $primary;
     }
   }
 
-  &__item {
+  &__subtitle {
+    @include resetMg;
+    margin-bottom: 40px;
+    font-size: clamp(1rem, 0.6vw + 0.9rem, 1.56rem);
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.827);
+
+    @include sol992 {
+      margin-bottom: 30px;
+      text-align: center;
+    }
+
+    @include sol767 {
+      margin-bottom: 20px;
+    }
   }
 
-  &__link {
+  &__text {
+    font-size: clamp(1rem, 0.6vw + 0.9rem, 1.56rem);
+    font-weight: 500;
+    color: rgba(128, 128, 128, 0.862);
+
+    @include sol992 {
+      text-align: center;
+    }
+  }
+
+  &__menu {
+    width: 33.3%;
+
+    @include sol992 {
+      width: 100%;
+    }
+  }
+
+  &__menu-list {
+    transform: translateX(-12px);
+
+    @include sol992 {
+      transform: unset;
+    }
+  }
+
+  &__menu-item {}
+
+  &__menu-link {
     position: relative;
     display: block;
     width: max-content;
     height: 100%;
     padding: 8px 12px;
-    font-size: 1.125rem;
-    font-weight: 500;
-    color: $white;
     border-radius: 5px;
     @include textBreak;
     outline: none;
-    transition: background-color 0.3s ease;
-    @include sol767 {
+    transition: background-color 0.3s ease, color 0.3s ease;
+
+    @include sol992 {
       margin: 0 auto;
     }
+
+    // @include sol767 {
+    //   margin: 0 auto;
+    // }
 
     &::after {
       content: '';
@@ -59,18 +137,42 @@
       transform: translateX(-50%);
       width: calc(100% - 24px);
       height: 1px;
-      background-color: $white;
+      background-color: $primary;
       opacity: 0;
       transition: opacity 0.3s ease;
     }
 
-    &:focus-visible,  &:active {
-      background-color: $primary-light;
+    &:focus-visible,
+    &:active {
+      background-color: $primary;
+      color: $white;
     }
+
     &:hover:not(:focus-visible):not(:active) {
       &::after {
         opacity: 1;
       }
     }
   }
+
+  &__info {
+    width: 33.3%;
+
+    @include sol992 {
+      width: 100%;
+    }
+  }
+
+
+
+}
+
+.info {
+  &__owner {
+    margin-bottom: 40px;
+  }
+
+  &__text {}
+
+  &__link {}
 }

@@ -1,57 +1,114 @@
 .hero {
-  padding: 80px 0;
-  background-color: #292c32;
-  // background-image: url("@img/bg2.svg");
-  background-repeat: no-repeat;
-  background-size: cover;
-
-  @include sol1200 {
-    padding-top: 40px;
-    padding-bottom: 40px;
-  }
-  @include sol576 {
-    padding-top: 0;
-  }
-
   &__container {
     display: flex;
-    gap: 40px;
-    justify-content: space-between;
+
+    @include sol767 {
+      position: relative;
+      min-height: 550px;
+      overflow: hidden;
+    }
+
+    @include sol576 {
+      min-height: 400px;
+    }
+  }
+
+
+  &__img-block {
+    position: relative;
+    width: 55%;
+    padding: 120px 0 80px 15px;
+    background-color: #ffeded;
+    border-radius: 0px 10% 10% 0px / 0px 50% 50% 0px;
+
+    @include sol992 {
+      padding: 50px 0 50px 15px;
+      width: 50%;
+    }
+
+    @include sol767 {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      padding: 50px 0;
+      border-radius: unset;
+    }
+
+    @include sol576 {
+      padding: 30px 0;
+    }
   }
 
   &__picture {
-    width: 40%;
+    display: block;
+    margin: 0 auto;
+    width: 50%;
     height: auto;
+
+    @include sol1400 {
+      width: 70%;
+    }
+
+    @include sol992 {
+      width: 80%;
+    }
+
+    @include sol767 {
+      width: 40%;
+    }
   }
 
   &__content {
+    position: relative;
     flex-grow: 1;
     align-self: center;
-    padding: 50px;
+    padding: 0 20px 0 50px;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    width: 40%;
+    width: 45%;
     background-color: rgba(255, 255, 255, 0.349);
-    backdrop-filter: blur(10px);
-    border-radius: 5% 95% 7% 93% / 94% 5% 95% 6%;
 
+
+    @include sol992 {
+      width: 50%;
+      padding: 0 30px;
+    }
+
+    @include sol767 {
+      width: 100%;
+      align-self: flex-end;
+      padding: 30px 30px;
+      background-color: rgba(255, 255, 255, 0.5);
+      backdrop-filter: blur(3px);
+      border-radius: 5% 95% 0% 100% / 100% 6% 94% 0%;
+    }
+
+    @include sol576 {
+      padding: 15px;
+    }
   }
 
   &__title {
     @include resetMg;
     margin-bottom: 30px;
-    font-size: clamp(1.5rem, 1.6vw + 1.2rem, 3.125rem);
+    font-size: clamp(1.2rem, 1.9vw + 0.8rem, 3.125rem);
     font-weight: 700;
-    color: #c8bcbe;
     @include textBreak;
 
     @include sol992 {
       width: 95%;
     }
 
+    @include sol767 {
+      margin-left: auto;
+      margin-right: auto;
+      width: min(500px, 85%);
+      text-align: center;
+    }
+
     @include sol576 {
-      width: 100%;
+      margin-bottom: 15px;
     }
 
   }
@@ -59,32 +116,41 @@
   &__descr {
     @include resetMg;
     margin-bottom: 30px;
-    width: 90%;
-    font-size: clamp(1rem, 0.6vw + 0.9rem, 1.5625rem);
-    line-height: 130%;
+    width: 80%;
+    font-size: clamp(0.8rem, 0.8vw + 0.6rem, 1.56rem);
+    line-height: 150%;
     color: $grey-dark;
     font-weight: 500;
     letter-spacing: 1.2px;
 
     @include sol992 {
-      width: 85%;
+      width: 100%;
+    }
+
+    @include sol767 {
+      margin-left: auto;
+      margin-right: auto;
+      width: min(520px, 100%);
     }
 
     @include sol576 {
-      width: 100%
+      text-align: center;
     }
   }
 
   &__btn {
     align-self: flex-start;
-    min-width: 150px;
-    width: min(50%, 150px);
-    padding: 8px 12px;
-    font-size: 18px;
+    min-width: 100px;
+    padding: 15px 30px 15px 80px;
+    font-size: clamp(1rem, 0.7vw + 0.9rem, 1.7rem);
     font-weight: 500;
     color: $white;
     border-radius: 5px;
     background-color: $primary;
+    background-image: url("@img/plane.svg");
+    background-repeat: no-repeat;
+    background-position: left 30px center;
+    background-size: auto 20px;
     transition: background-color 0.3s ease;
 
     &:focus-visible {
@@ -99,175 +165,77 @@
       background-color: $primary-x-dark;
     }
 
+    @include sol767 {
+      align-self: center;
+    }
+
     @include sol576 {
-      align-self: unset;
+      padding: 7px 12px 7px 40px;
+      background-position: left 12px center;
+      background-size: auto 12px;
     }
   }
 }
 
 .levitate {
-  animation: levitate-animation 4s cubic-bezier(.17,1,1,.04) infinite alternate;
+  animation: levitate-animation 4s cubic-bezier(.17, 1, 1, .04) infinite alternate;
   transform-origin: center;
   transform: scale(1);
-  }
+}
 
-  @keyframes levitate-animation {
+@keyframes levitate-animation {
   0% {
     transform: scale(1);
   }
+
   100% {
     transform: scale(1.1);
   }
-  }
+}
 
 .advantages {
-  padding: 80px 0;
-  background-color: rgba(102, 212, 227, 0.5);
+  position: relative;
+  z-index: 10;
+  min-height: 800px;
 
-  @include sol1200 {
-    padding: 60px 0;
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    // background-image: url('@img/bg1920.jpg');
+    // background-repeat: no-repeat;
+    // background-size: cover;
+    // background-position: center;
+    // // filter: blur(10px);
   }
 
-  &__container {}
-
-  &__rates {
-    display: flex;
-    gap: 60px;
-
-    @include sol992 {
-      gap: 30px;
-    }
-
-    @include sol767 {
-      flex-direction: column;
-      gap: 50px;
-      align-items: center;
-    }
-    @include sol500 {
-      gap: 30px;
-    }
-  }
-}
-
-.rate {
-  display: flex;
-  flex-direction: column;
-  gap: 50px;
-  height: auto;
-  width: calc((100% - 60px)/2);
-  padding: 50px;
-  background-color: $white;
-  border-radius: 30px;
-  box-shadow: 0px 0px 15px 0px rgba(255,255,255,1);
-  @include sol992 {
-    width: calc((100% - 30px)/2);
-    padding: 40px 20px;
-  }
-
-  @include sol767 {
-    padding: 50px;
-    width: 100%;
-  }
-
-  @include sol576 {
-    gap: 20px;
-    padding: 25px 18px;
-  }
-
-
-  img {
-    display: block;
-    height: 40%;
-    margin-bottom: auto;
-    object-fit: contain;
-    @include sol576 {
-      height: 250px;
-    }
-  }
-
-  &__content {
-    flex-basis: 50%;
-    // height: calc(60% - 50px);
-  }
-
-  &__title {
-    @include resetMg;
-    margin: 0 auto 30px;
-    width: min(100%, 500px);
-    text-align: center;
-    // font-size: clamp(1.2rem, 0.8vw + 1rem, 2rem);
-    font-size: clamp(1.1rem, 1.1vw + 0.9rem, 2.2rem);
-    color: $grey-dark;
-    font-weight: 700;
-    line-height: 130%;
-    @include sol500 {
-      margin:0 auto 20px;
-    }
-  }
-
-  &__list {
-    margin:0;
-    padding-left: 20px;
-  }
-
-  &__item {
-    padding-left: 20px;
-    font-size: 1.375rem;
-    line-height: 200%;
-    font-weight: 500;
-    color: $grey-dark;
-    &:not(:last-child) {
-      margin-bottom: 30px;
-
-      @include sol500 {
-        margin-bottom: 15px;
-      }
-    }
-    &::marker {
-      content: 'ღ';
-      font-size: 1.5625rem;
-      color: #f16989;
-    }
-    @include sol992 {
-      font-size: 1rem;
-      line-height: 150%;
-      // font-weight: 400;
-    }
-  }
-
-}
-
-.premium {
-  &__item {
-    &::marker {
-      content: '♛';
-      color: #e9e05f;
-    }
-  }
 }
 
 .contacts {
-  padding: 40px 0 60px;
-  @include sol1200 {
-    padding: 40px 0;
-  }
-  &__container {
 
-  }
+  &__container {}
 
   &__title {
-    margin-bottom: 30px;
-    @include sol576 {
-      margin-bottom: 10px;
-    }
+    width: 100%;
+    display: flex;
+    margin-bottom: 0;
+  }
+
+  &__btn {
+    width: 100%;
+    padding: 50px 0;
+    font: inherit;
+    color: #ffffffe3;
   }
 
   &__list {
-    width:  100%;
+    width: 100%;
     background-image: url("@img/support.svg");
     background-repeat: no-repeat;
     background-position: right 10% center;
     background-size: auto 100%;
+
     @include sol1200 {
       background-size: auto 80%;
     }
@@ -276,22 +244,24 @@
       background-size: 30% auto;
       background-position: right 50px bottom;
     }
+
     @include sol767 {
       background-size: 30% auto;
       background-position: right 30px bottom;
     }
+
     @include sol576 {
       background-image: none;
     }
   }
 
   &__item {
-    width:53%;
+    width: 53%;
     display: flex;
     align-items: center;
     gap: 20px;
     font-size: clamp(1rem, 0.2vw + 1rem, 1.2rem);
-    border-bottom: 1px solid rgba(187,196,200,.5137254902);
+    border-bottom: 1px solid rgba(187, 196, 200, .5137254902);
     padding: 20px 0;
 
     @include sol992 {
@@ -311,6 +281,7 @@
     }
 
   }
+
   &__subtitle {
     @include resetMg;
     flex: 0 0 40%;
@@ -319,26 +290,30 @@
     font-weight: 500;
     line-height: 150%;
     @include textBreak;
+
     @include sol992 {
       flex: 0 0 35%;
     }
   }
-  &__content{
+
+  &__content {
     @include resetMg;
     flex: 1;
     // font-size: 1.125rem;
     font-weight: 400;
     line-height: 150%;
     letter-spacing: .96px;
+
     @include sol767 {
       font-size: 1rem;
     }
+
     @include sol576 {
       text-align: center;
     }
   }
 
-  &__link{
+  &__link {
     padding: 5px 0;
     color: $primary-x-dark;
     border-bottom: 1px solid $primary-x-dark;
@@ -347,7 +322,8 @@
 
 
 
-    &:focus-visible, &:hover {
+    &:focus-visible,
+    &:hover {
       color: $primary;
       border-color: $primary;
     }
@@ -358,4 +334,18 @@
     }
   }
 
+}
+
+.spoiler__header {
+  background-color: #000000;
+  box-shadow: 0px 3px 4px 2px rgba(217, 217, 217, 0.996);
+}
+
+.spoiler {
+  &__content {
+    box-sizing: border-box;
+    overflow: hidden;
+    will-change: height;
+    transition: height 0.3s linear, visibility 0.3s linear;
+  }
 }

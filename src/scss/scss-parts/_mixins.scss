@@ -61,6 +61,11 @@
   word-wrap: break-word;
 }
 
+@mixin sol1400 {
+  @media (max-width: 1400px) {
+    @content;
+  }
+}
 
 @mixin sol1200 {
   @media (max-width: 1200px) {
@@ -99,11 +104,13 @@
     @content;
   }
 }
+
 @mixin sol600 {
   @media (max-width: 600px) {
     @content;
   }
 }
+
 @mixin sol576 {
   @media (max-width: 576px) {
     @content;
