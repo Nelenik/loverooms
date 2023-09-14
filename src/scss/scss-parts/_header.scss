@@ -60,11 +60,6 @@
         width: 138px;
         height: 60px;
       }
-
-      @include sol576 {
-        width: auto;
-        height: 40px;
-      }
     }
   }
 
@@ -107,7 +102,7 @@
   }
 
   @include sol576 {
-    height: calc(100vh - 50px);
+    height: calc(100vh - 70px);
     background-image: none;
   }
 

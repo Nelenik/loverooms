@@ -1,11 +1,9 @@
 .footer {
   padding: 50px 0;
   background-color: #000000;
-  // border-top: 1px solid rgba(255, 255, 255, 0.827);
-  box-shadow: 0px -3px 4px 2px rgba(217, 217, 217, 0.996);
 
   @include sol767 {
-    padding: 20px 0;
+    padding: 40px 0;
   }
 
   &__container {
@@ -58,6 +56,11 @@
     img {
       height: 80px;
       display: block;
+
+      @include sol767 {
+        width: 138px;
+        height: 60px;
+      }
     }
 
     &:focus-visible {
